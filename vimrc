@@ -16,6 +16,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'honza/vim-snippets'
 Plugin 'Townk/vim-autoclose'
+Plugin 'vim-scripts/marvim'
 " " all of your plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -47,18 +48,29 @@ set autowrite		" Automatically save before commands like :next and :make
 set mouse=a		" Enable mouse usage (all modes)
 set cursorline
 set number
+set relativenumber
+set backspace=indent,eol,start
 
 set smarttab
 set autoindent
 set smartindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+set wildmenu
+set hlsearch
+nnoremap <C-L> :nohl<CR><C-L>
+inoremap kj <esc>
+inoremap jk <esc>
+
+set clipboard=unnamed
+set clipboard=unnamedplus
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -71,6 +83,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 
 colorscheme spring-night
+
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
